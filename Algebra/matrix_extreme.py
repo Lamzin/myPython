@@ -254,7 +254,7 @@ if __name__ == "__main__":
 
         chain = []
         for i in range(len(fund_syst_array) - 1, 0, -1):
-            print("i = %i" % i)
+            #print("i = %i" % i)
             tmp = []
             for item_chain in chain:
                 for item in item_chain:
