@@ -227,7 +227,7 @@ if __name__ == "__main__":
     ff = open("matrix_show.txt", "w")
     ff.close()
 
-    alpha = [3, -5] # eigenvalues numbers
+    alpha = [2, 4, -5] # eigenvalues numbers
 
     a = get_matrix()
     A = transform_matrix(a)
@@ -276,3 +276,23 @@ if __name__ == "__main__":
             print_file([], "Chain #")
             for it in chain[-1]:
                 print_file(it)
+
+        first_vector = []
+        for chain_vect in chain:
+            for chain_chain in chain_vect:
+                first_vector.append(chain_chain[-1])
+       
+        if first_vector:
+            file_addition = open("addition.txt", "w")
+            file_addition.write("%i %i\n" % (len(first_vector), len(fund_syst_array[0])))
+
+            for item in first_vector:
+                print_in_file(item, file_addition)
+            for item in fund_syst_array[0]:
+                print_in_file(item, file_addition)
+            file_addition.close()
+
+            addition = matrix_addition_to_base()
+            
+            print_file([], "Chain #, len = 1")
+            print_file(addition)
