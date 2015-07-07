@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../ImagesCompression/.idea/ImagesCompression.iml" filepath="$PROJECT_DIR$/../ImagesCompression/.idea/ImagesCompression.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/LeetCodePrepare.iml" filepath="$PROJECT_DIR$/.idea/LeetCodePrepare.iml" />
     </modules>
   </component>
