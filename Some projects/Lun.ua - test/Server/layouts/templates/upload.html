@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload</title>
+
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin: auto;
+        }
+        th, td {
+            padding: 5px;
+            text-align: center;
+        }
+        button{
+            width: 30%
+        }
+
+        input{
+{#            margin-left:20px;#}
+            margin-top:20px;
+            display:inline-block;
+        }
+
+        .upload_form{
+            display: table;
+            width: 300px;
+            display: inline-block;
+            margin-left: 10%;
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+
+    <br>
+    <table style="width: 60%; border: 0px; ">
+        <td style="border: 0px; width: 100px">
+            <a href="/1"><h4>Result #1</h4></a>
+        </td>
+
+        <td style="border: 0px; width: 100px">
+            <a href="/both_1"><h4>both #1</h4></a>
+        </td>
+        <td style="border: 0px; width: 100px">
+            <a href="/default_1"><h4>default #1</h4></a>
+        </td>
+        <td style="border: 0px; width: 100px">
+            <a href="/bfs_1"><h4>bfs #1</h4></a>
+        </td>
+
+        <td style="border: 0px; width: 100px">
+            <a href="/upload"><h4>Upload</h4></a>
+        </td>
+    </table>
+    <br>
+
+
+    {% block content %}
+        <div class="upload_form">
+            <h1>Upload image</h1>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.image_file }}
+                <input type="submit">
+            </form>
+        </div>
+
+    {% endblock %}
+
+
+</body>
+</html>

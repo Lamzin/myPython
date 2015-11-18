@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+</head>
+<body>
+
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin: auto;
+        }
+        th, td {
+            padding: 5px;
+            text-align: center;
+        }
+        button{
+            width: 30%
+        }
+    </style>
+
+
+    <br>
+    <table style="width: 60%; border: 0px; ">
+        <td style="border: 0px; width: 100px">
+            <a href="/1"><h4>Result #1</h4></a>
+        </td>
+
+        <td style="border: 0px; width: 100px">
+            <a href="/both_1"><h4>both #1</h4></a>
+        </td>
+        <td style="border: 0px; width: 100px">
+            <a href="/default_1"><h4>default #1</h4></a>
+        </td>
+        <td style="border: 0px; width: 100px">
+            <a href="/bfs_1"><h4>bfs #1</h4></a>
+        </td>
+
+        <td style="border: 0px; width: 100px">
+            <a href="/upload"><h4>Upload</h4></a>
+        </td>
+    </table>
+    <br>
+
+
+
+    <table style="width:60%">
+        <tr>
+            <td style="width:40%"><h2>Result by straightforward algorithm</h2></td>
+            <td style="width:20%"><h2>Ratio</h2></td>
+        </tr>
+        {% for result in straight_results %}
+            <tr>
+                <td style="width:40%"><img src="{{ result.url }}" max-height="512"></td>
+                <td style="width:20%"><h4>{{ result.ratio}} </h4></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <br>
+
+    <table style="width:60%">
+        <tr>
+            <td style="width:40%"><h2>Result by bfs algorithm</h2></td>
+            <td style="width:20%"><h2>Ratio</h2></td>
+        </tr>
+        {% for result in bfs_results %}
+            <tr>
+                <td style="width:40%"><img src="{{ result.url }}" max-height="512px" max-width="512px"></td>
+                <td style="width:20%"><h4>{{ result.ratio}} </h4></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <br>
+
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+</head>
+<body>
+
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin: auto;
+        }
+        th, td {
+            padding: 5px;
+            text-align: center;
+        }
+        button{
+            width: 30%
+        }
+
+        img{
+            max-width: 512px;
+
+        }
+
+    </style>
+
+
+    <br>
+    <table style="width: 60%; border: 0px; ">
+        <td style="border: 0px; width: 100px">
+            <a href="/1"><h4>Result #1</h4></a>
+        </td>
+
+        <td style="border: 0px; width: 100px">
+            <a href="/both_1"><h4>both #1</h4></a>
+        </td>
+        <td style="border: 0px; width: 100px">
+            <a href="/default_1"><h4>default #1</h4></a>
+        </td>
+        <td style="border: 0px; width: 100px">
+            <a href="/bfs_1"><h4>bfs #1</h4></a>
+        </td>
+
+        <td style="border: 0px; width: 100px">
+            <a href="/upload"><h4>Upload</h4></a>
+        </td>
+    </table>
+    <br>
+
+
+    <table style="width:60%">
+        <tr>
+            <td style="width:20%"><h2>ID</h2></td>
+            <td style="width:20%"><h2>Image</h2></td>
+            <td style="width:20%"><h2>Straightforward</h2></td>
+            <td style="width:20%"><h2>BFS</h2></td>
+        </tr>
+
+        {% for result in results %}
+            <tr>
+                <td style="width:20%"><a href="detail_{{ result.id }}"><h4>{{ result.id}} </h4></a></td>
+                <td style="width:20%"><img src="{{ result.url }}" height="264"></td>
+                <td style="width:20%"><h4>{{ result.default}} </h4></td>
+                <td style="width:20%"><h4>{{ result.bfs}} </h4></td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+    <br>
+
+    {% if prev_page != -1 %}
+        <table style="width: 60%; border: 0px; ">
+            <td style="border: 0px">
+                <form action={{ prev_page }}>
+                    <button><h4>prev</h4></button>
+                </form>
+            </td>
+
+            <td style="border: 0px">
+                <form action={{ next_page }}>
+                    <button><h4>next</h4></button>
+                </form>
+            </td>
+        </table>
+    {% endif %}
+
+    <br>
+
+
+</body>
+</html>
