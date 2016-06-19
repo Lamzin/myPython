@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+<script>
+    function load(name) {
+        $.ajax({
+            url: "/welcome",
+            data: {"name" : name},
+            success: function(data){
+                alert(data);
+            },
+            error: function(){
+                alert('failure');
+            }
+        });
+    }
+
+    $(document).ready(function() {
+        $("#submit_name").click(function () {
+            if ($("#name").val() == "Как тебя зовут?") {
+                return 0;
+            }
+
+            load($("#name").val());
+
+            $("#name").hide();
+            $("#name_icon").hide();
+            $("#submit_name").hide();
+
+            $("#do_something").show();
+        });
+    });
+
+
+</script>
+
+<head>
+    <meta charset="UTF-8">
+
+	<title>Hi, EVO!</title>
+	<link rel="stylesheet" href="static/css/style.css" media="screen" type="text/css" />
+
+</head>
+
+<body>
+    <div id="login">
+        <form action="javascript:void(0);" method="get">
+            <fieldset class="clearfix">
+                <p><span class="fontawesome-user" id="name_icon"></span><input id="name" type="text" value="Как тебя зовут?" onBlur="if(this.value == '') this.value = 'Как тебя зовут?'" onFocus="if(this.value == 'Как тебя зовут?') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Username" -->
+                <p><input id="submit_name" type="submit" value="ВОЙТИ"></p>
+                <p><input id="do_something" type="submit" value="Сделать чтото важное" hidden></p>
+            </fieldset>
+        </form>
+    </div>
+
+</body>
+</html>
